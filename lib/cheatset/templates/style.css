@@ -2,6 +2,12 @@ h1, h2, h3, p, blockquote {
   margin: 0;
   padding: 0; }
 
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Open Sans"), local("OpenSans"), url(res/Open_Sans.woff) format("woff"); }
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
@@ -10,7 +16,8 @@ body {
   margin: 0; }
 
 code, pre {
-  font-family: 'Droid Sans Mono', monospace; }
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+  font-size: 13px; }
 
 code {
   margin: 0;
@@ -307,5 +314,4 @@ p {
 
 pre {
   padding: 15px;
-  line-height: 17px;
-  font-family: 'Ubuntu Mono', 'Monaco', monospace; }
+  line-height: 17px; }

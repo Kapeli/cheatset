@@ -3,8 +3,6 @@
   %head
     %meta{charset: 'utf-8'}
     %title= title
-    %link{href: 'http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lobster|Open+Sans',
-          rel: 'stylesheet', type: 'text/css'}
     %link{rel: 'stylesheet', href: 'style.css'}
   %body
     %header
@@ -32,5 +30,7 @@
           %h2 Notes
           ~ notes
     %footer
-      Generated with
-      %a{href: 'https://github.com/Kapeli/cheatset'} cheatset
+      - if source_url
+        You can modify and improve this cheatsheet <a href="#{source_url}">here</a>.
+      - else
+        Generated with <a href='https://github.com/Kapeli/cheatset#readme'>cheatset</a>.

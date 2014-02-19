@@ -12,47 +12,40 @@ language (Ruby DSL).
 
 ## Usage
 
-Write a file (here `tmux.cheatsheet`) containing your cheatsheet-data, e.g.:
+Write a file (here `sample.cheatsheet`) containing your cheatsheet data, e.g.:
 
-```
+```ruby
 cheatsheet do
-  title 'tmux' # Will be displayed by Dash in the docset list
-  short_name 'tmux' # Used for the filename of the docset
-  introduction 'My *awesome* cheatsheet for tmux'
+  title 'Sample Cheatsheet'  # Will be displayed by Dash in the docset list
+  short_name 'sample'  # Used for the filename of the docset
+  introduction 'My *awesome* cheatsheet'  # can contain markdown and multiple lines
 
   # A cheatsheet must consist of categories
   category do
-    id 'windows'  # must be unique and is used as title of the category
+    id 'Windows'  # must be unique and is used as title of the category
 
     entry do
-      command 'PREFIX-c'
-      name 'create window'            # A short name
-      notes 'theses are some notes'   # longer explanation
+      command 'CMD-n'        # Optional
+      command 'CMD-N'        # Can have more than one command
+      name 'Create window'   # A short name, can contain markdown
+      notes 'Some notes'     # Optional longer explanation, can contain markdown
     end
     entry do
-      name 'rename window'
-      command 'PREFIX-,'
-    end
-    entry do
-      name 'go to next window'
-      command 'PREFIX-n'
+      command 'CMD-w'
+      name 'Close window'
     end
   end
 
   category do
-    id 'panes'
+    id 'Code'
     entry do
-      name 'split horizontally'
-      command 'PREFIX-|'
-      notes 'custom mapping'
-    end
-    entry do
-      name 'split horizontally'
-      command 'PREFIX-%'
-    end
-    entry do
-      name 'split vertically'
-      command 'PREFIX-"'
+      name 'Code sample'
+      notes <<-'END'
+        ```ruby
+        sample = "You can include code snippets as well"
+        ```
+        Or anything else **markdown**.
+      END
     end
   end
 
@@ -69,7 +62,7 @@ For more complete examples look at some of
 
 To convert this file to a docset, call
 
-    $ cheatset generate tmux.cheatsheet
+    $ cheatset generate sample.cheatsheet
 
 
 ## Contributing

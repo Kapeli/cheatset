@@ -2,6 +2,7 @@ require 'redcarpet'
 require 'rouge'
 require 'rouge/plugins/redcarpet'
 require 'sanitize'
+require 'unindent'
 
 class HTML < Redcarpet::Render::HTML
   include Rouge::Plugins::Redcarpet
@@ -47,7 +48,7 @@ module Cheatset
         names.each do |name|
           define_method(name) do |val = nil|
             if val
-              val = val.gsub(/^ */, "")
+              val = val.unindent
               val = parse_markdown(val)
               instance_variable_set("@#{name}", val)
             end

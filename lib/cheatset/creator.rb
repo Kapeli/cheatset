@@ -14,7 +14,6 @@ class Cheatset::Creator
   def generate
     FileUtils.rm_rf(@path)
     FileUtils.mkdir_p(@path)
-    copy_icon
     generate_html_file
     generate_plist_file
     generate_database
@@ -24,10 +23,6 @@ class Cheatset::Creator
 
   def tpl_path
     File.expand_path('../templates', __FILE__)
-  end
-
-  def copy_icon
-    FileUtils.cp("#{tpl_path}/icon.tiff", @docset_path)
   end
 
   def generate_html_file

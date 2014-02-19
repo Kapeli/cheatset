@@ -18,11 +18,11 @@ Write a file (here `sample.cheatsheet`) containing your cheatsheet data, e.g.:
 cheatsheet do
   title 'Sample Cheatsheet'  # Will be displayed by Dash in the docset list
   short_name 'sample'  # Used for the filename of the docset
-  introduction 'My *awesome* cheatsheet'  # can contain markdown and multiple lines
+  introduction 'My *awesome* cheatsheet'  # Can contain markdown and multiple lines
 
   # A cheatsheet must consist of categories
   category do
-    id 'Windows'  # must be unique and is used as title of the category
+    id 'Windows'  # Must be unique and is used as title of the category
 
     entry do
       command 'CMD-n'        # Optional

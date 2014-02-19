@@ -72,6 +72,12 @@ class Cheatset::Creator
       db.execute(sql, category.id, 'Category',
                  "index.html\#//dash_ref/Category/#{category_strip}/1")
       category.entries.each_with_index do |entry, index|
+        if entry.command
+          entry.command.each do |command|
+            db.execute(sql, command.strip, 'Command',
+                       "index.html\#//dash_ref_#{category_strip}/Entry/#{entry.tags_stripped_name.strip.gsub(/\//, '%2F')}/0")
+          end
+        end
         db.execute(sql, entry.tags_stripped_name.strip, 'Entry',
                    "index.html\#//dash_ref_#{category_strip}/Entry/#{entry.tags_stripped_name.strip.gsub(/\//, '%2F')}/0")
       end

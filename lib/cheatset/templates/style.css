@@ -16,7 +16,7 @@ body {
   margin: 0; }
 
 code, pre {
-  font-family: Consolas, "Liberation Mono", Courier, monospace;
+  font-family: Menlo, Consolas, "Liberation Mono", Courier, monospace;
   font-size: 13px; }
 
 code {

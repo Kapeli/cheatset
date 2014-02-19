@@ -38,7 +38,7 @@ class Cheatset::Creator
     FileUtils.cp("#{tpl_path}/style.css", doc_path)
 
     # resources
-    FileUtils.cp("#{tpl_path}/res", doc_path)
+    FileUtils.cp_r("#{tpl_path}/res", doc_path)
   end
 
   def generate_plist_file

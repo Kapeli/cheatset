@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %meta{charset: 'utf-8'}
+    %title= title
+    %link{href: 'http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Lobster|Open+Sans',
+          rel: 'stylesheet', type: 'text/css'}
+    %link{rel: 'stylesheet', href: 'style.css'}
+  %body
+    %header
+      %h1= title
+
+    %article
+      %p~ introduction
+
+      - categories.each do |category|
+        %section.category
+          %h2= category.id
+          %table
+            - category.entries.each_with_index do |entry, index|
+              %tr{id: "#{category.id}-#{index}"}
+                - if entry.command
+                  %td.command
+                    - entry.command.each do |command|
+                      %p
+                        %code= command
+                %td.description
+                  .name~ entry.name
+                  .notes~ entry.notes
+      - if notes
+        %section.notes
+          %h2 Notes
+          ~ notes
+    %footer
+      Generated with
+      %a{href: 'https://github.com/Kapeli/cheatset'} cheatset

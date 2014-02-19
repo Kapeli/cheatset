@@ -21,11 +21,11 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake'
 
   spec.add_dependency 'thor'
-  spec.add_dependency 'haml', '~> 4.0.3'
-  spec.add_dependency 'sqlite3', '~> 1.3.8'
-  spec.add_dependency 'plist', '~> 3.1.0'
-  spec.add_dependency 'redcarpet', '~> 3.1.1'
-  spec.add_dependency 'rouge', '~> 1.3.2'
-  spec.add_dependency 'sanitize', '~> 2.0.6'
-  spec.add_dependency 'unindent', '~> 1.0'
+  spec.add_dependency 'haml'
+  spec.add_dependency 'sqlite3'
+  spec.add_dependency 'plist'
+  spec.add_dependency 'redcarpet'
+  spec.add_dependency 'rouge'
+  spec.add_dependency 'sanitize'
+  spec.add_dependency 'unindent'
 end

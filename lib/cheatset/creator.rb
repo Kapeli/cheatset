@@ -45,11 +45,14 @@ class Cheatset::Creator
     plist_data = {
       'CFBundleIdentifier' => @cheatsheet.short_name,
       'CFBundleName' => @cheatsheet.title,
-      'DocSetPlatformFamily' => "cheatsheet",
+      'DocSetPlatformFamily' => @cheatsheet.short_name,
       'DashDocSetFamily' => 'cheatsheet',
       'isDashDocset' => true,
       'dashIndexFilePath' => 'index.html'
     }
+    if @cheatsheet.platform
+      plist_data['DocSetDashPluginKeyword'] = @cheatsheet.platform
+    end
     File.open("#{@path}Info.plist", 'w') do |file|
       file.write(Plist::Emit.dump(plist_data))
     end
@@ -64,10 +67,13 @@ class Cheatset::Creator
       CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);
     SQL
     @cheatsheet.categories.each do |category|
+      category_strip = category.id.strip.gsub(/\//, '%2F');
+      sql = 'INSERT INTO searchIndex(name, type, path) VALUES (?, ?, ?)'
+      db.execute(sql, category.id, 'Category',
+                 "index.html\#//dash_ref/Category/#{category_strip}/1")
       category.entries.each_with_index do |entry, index|
-        sql = 'INSERT INTO searchIndex(name, type, path) VALUES (?, ?, ?)'
-        db.execute(sql, entry.tags_stripped_name, 'Guide',
-                   "index.html\##{category.id}-#{index}")
+        db.execute(sql, entry.tags_stripped_name.strip, 'Entry',
+                   "index.html\#//dash_ref_#{category_strip}/Entry/#{entry.tags_stripped_name.strip.gsub(/\//, '%2F')}/0")
       end
     end
   end

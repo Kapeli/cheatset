@@ -4,6 +4,10 @@
     %meta{charset: 'utf-8'}
     %title= title
     %link{rel: 'stylesheet', href: 'style.css'}
+    - categories.each do |category|
+      %link{href: "//dash_ref/Category/#{category.id.strip.gsub(/\//, '%2F')}/1"}
+      - category.entries.each_with_index do |entry, index|
+        %link{href: "//dash_ref_#{category.id.strip.gsub(/\//, '%2F')}/Entry/#{entry.tags_stripped_name.strip.gsub(/\//, '%2F')}/0"}
   %body
     %header
       %h1= title
@@ -13,10 +17,11 @@
 
       - categories.each do |category|
         %section.category
-          %h2= category.id
+          %h2{id:"//dash_ref/Category/#{category.id.strip.gsub(/\//, '%2F')}/1"}
+            = category.id
           %table
             - category.entries.each_with_index do |entry, index|
-              %tr{id: "#{category.id}-#{index}"}
+              %tr{id: "//dash_ref_#{category.id.strip.gsub(/\//, '%2F')}/Entry/#{entry.tags_stripped_name.strip.gsub(/\//, '%2F')}/0"}
                 - if entry.command
                   %td.command
                     - entry.command.each do |command|

@@ -8,7 +8,7 @@ require 'uri'
 class Cheatset::Creator
   def initialize(cheatsheet)
     @cheatsheet = cheatsheet
-    @docset_path = "#{@cheatsheet.short_name}.docset"
+    @docset_path = "#{@cheatsheet.docset_file_name}.docset"
     @path = "#{@docset_path}/Contents/"
   end
 
@@ -44,9 +44,9 @@ class Cheatset::Creator
 
   def generate_plist_file
     plist_data = {
-      'CFBundleIdentifier' => @cheatsheet.short_name,
+      'CFBundleIdentifier' => @cheatsheet.keyword,
       'CFBundleName' => @cheatsheet.title,
-      'DocSetPlatformFamily' => @cheatsheet.short_name,
+      'DocSetPlatformFamily' => @cheatsheet.keyword,
       'DashDocSetFamily' => 'cheatsheet',
       'isDashDocset' => true,
       'dashIndexFilePath' => 'index.html'

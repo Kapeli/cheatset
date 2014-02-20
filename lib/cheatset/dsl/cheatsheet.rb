@@ -2,7 +2,7 @@ module Cheatset
   module DSL
     class Cheatsheet < Base
       attr_reader :categories
-      define_attrs :title, :short_name, :source_url, :platform
+      define_attrs :title, :docset_file_name, :keyword, :source_url, :platform
       define_markdown_attrs :introduction, :notes
 
       def initialize(&block)

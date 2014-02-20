@@ -20,8 +20,10 @@ Write a file (here `sample.rb`) containing your cheat sheet data, e.g.:
 
 ```ruby
 cheatsheet do
-  title 'Sample'  # Will be displayed by Dash in the docset list
-  short_name 'sample'  # Used for the filename of the docset
+  title 'Sample'             # Will be displayed by Dash in the docset list
+  docset_file_name 'Sample'  # Used for the filename of the docset
+  keyword 'sample'           # Used as the initial search keyword (listed in Preferences > Docsets)
+  
   introduction 'My *awesome* cheat sheet'  # Optional, can contain markdown and multiple lines
 
   # A cheat sheet must consist of categories

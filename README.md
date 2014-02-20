@@ -16,7 +16,7 @@ If you make an useful cheat sheet, please [contribute it](https://github.com/Kap
 
 ## Usage
 
-Write a file (here `sample.cheatsheet`) containing your cheat sheet data, e.g.:
+Write a file (here `sample.rb`) containing your cheat sheet data, e.g.:
 
 ```ruby
 cheatsheet do
@@ -66,7 +66,7 @@ For more complete examples look at some of
 
 To convert this file to a docset, call
 
-    $ cheatset generate sample.cheatsheet
+    $ cheatset generate sample.rb
 
 ## Thanks
 

@@ -10,6 +10,10 @@ language (Ruby DSL).
 
     $ gem install cheatset
 
+## Contributing
+
+If you make an useful cheatsheet, please [contribute it](https://github.com/Kapeli/cheatsheets#readme) to Dash.
+
 ## Usage
 
 Write a file (here `sample.cheatsheet`) containing your cheatsheet data, e.g.:
@@ -63,12 +67,6 @@ For more complete examples look at some of
 To convert this file to a docset, call
 
     $ cheatset generate sample.cheatsheet
-
-
-## Contributing
-
-Yes, please! Open issues and pull requests on the
-[GitHub page](https://github.com/Kapeli/cheatset).
 
 ## Thanks
 

@@ -97,7 +97,8 @@ td.command {
   width: 1%;
   white-space: nowrap;
   vertical-align: top;
-  padding: 8px 8px 0 7px;
+  padding: 8px 8px 4px 7px;
+  text-align:right;
   code {
     // Nice key styling:
     // https://developers.google.com/chrome-developer-tools/docs/shortcuts

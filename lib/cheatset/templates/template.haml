@@ -7,7 +7,8 @@
     - categories.each do |category|
       %link{href: "//dash_ref/Category/#{category.id.strip.gsub(/\//, '%2F')}/1"}
       - category.entries.each_with_index do |entry, index|
-        %link{href: "//dash_ref_#{category.id.strip.gsub(/\//, '%2F')}/Entry/#{entry.tags_stripped_name.strip.gsub(/\//, '%2F')}/0"}
+        - if entry.name
+          %link{href: "//dash_ref_#{category.id.strip.gsub(/\//, '%2F')}/Entry/#{entry.tags_stripped_name.strip.gsub(/\//, '%2F')}/0"}
   %body
     %header
       %h1= title
@@ -21,13 +22,13 @@
             = category.id
           %table
             - category.entries.each_with_index do |entry, index|
-              %tr{id: "//dash_ref_#{category.id.strip.gsub(/\//, '%2F')}/Entry/#{entry.tags_stripped_name.strip.gsub(/\//, '%2F')}/0"}
+              %tr{id: ("//dash_ref_#{category.id.strip.gsub(/\//, '%2F')}/Entry/#{entry.tags_stripped_name.strip.gsub(/\//, '%2F')}/0" if entry.name)}
                 - if entry.command
                   %td.command
                     - entry.command.each do |command|
                       %p
-                        %code= command
-                %td.description
+                        %code= CGI.escapeHTML(command)
+                %td.description{:colspan => ("2" unless entry.command)}
                   .name~ entry.name
                   .notes~ entry.notes
       - if notes
@@ -36,6 +37,6 @@
           ~ notes
     %footer
       - if source_url
-        You can modify and improve this cheatsheet <a href="#{source_url}">here</a>.
+        You can modify and improve this cheatsheet <a onclick="window.dash.openExternal_(this.href); return false;" href="#{source_url}">here</a>.
       - else
-        Generated with <a href='https://github.com/Kapeli/cheatset#readme'>cheatset</a>.
+        Generated with <a onclick="window.dash.openExternal_(this.href); return false;" href='https://github.com/Kapeli/cheatset#readme'>cheatset</a>.

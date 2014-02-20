@@ -16,7 +16,7 @@ Write a file (here `sample.cheatsheet`) containing your cheatsheet data, e.g.:
 
 ```ruby
 cheatsheet do
-  title 'Sample Cheatsheet'  # Will be displayed by Dash in the docset list
+  title 'Sample'  # Will be displayed by Dash in the docset list
   short_name 'sample'  # Used for the filename of the docset
   introduction 'My *awesome* cheatsheet'  # Can contain markdown and multiple lines
 
@@ -26,7 +26,7 @@ cheatsheet do
 
     entry do
       command 'CMD-n'        # Optional
-      command 'CMD-N'        # Can have more than one command
+      command 'CMD-N'        # Multiple commands are supported
       name 'Create window'   # A short name, can contain markdown
       notes 'Some notes'     # Optional longer explanation, can contain markdown
     end

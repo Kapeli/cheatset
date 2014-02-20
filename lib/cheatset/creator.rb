@@ -3,6 +3,7 @@ require 'sqlite3'
 require 'fileutils'
 require 'haml'
 require 'ostruct'
+require 'uri'
 
 class Cheatset::Creator
   def initialize(cheatsheet)
@@ -67,7 +68,7 @@ class Cheatset::Creator
       CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);
     SQL
     @cheatsheet.categories.each do |category|
-      category_strip = category.id.strip.gsub(/\//, '%2F');
+      category_strip = URI.escape(category.id.strip).gsub(/\//, '%252F');
       sql = 'INSERT INTO searchIndex(name, type, path) VALUES (?, ?, ?)'
       db.execute(sql, category.id, 'Category',
                  "index.html\#//dash_ref/Category/#{category_strip}/1")
@@ -75,11 +76,13 @@ class Cheatset::Creator
         if entry.command
           entry.command.each do |command|
             db.execute(sql, command.strip, 'Command',
-                       "index.html\#//dash_ref_#{category_strip}/Entry/#{entry.tags_stripped_name.strip.gsub(/\//, '%2F')}/0")
+                       "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape(entry.tags_stripped_name.strip).gsub(/\//, '%252F')}/0")
           end
         end
-        db.execute(sql, entry.tags_stripped_name.strip, 'Entry',
-                   "index.html\#//dash_ref_#{category_strip}/Entry/#{entry.tags_stripped_name.strip.gsub(/\//, '%2F')}/0")
+        if entry.name
+          db.execute(sql, entry.tags_stripped_name.strip, 'Entry',
+                   "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape(entry.tags_stripped_name.strip).gsub(/\//, '%252F')}/0")
+        end
       end
     end
   end

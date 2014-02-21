@@ -10,7 +10,7 @@ language (Ruby DSL).
 
     $ gem install cheatset
 
-## Contributing
+## Contributions
 
 If you make an useful cheat sheet, please [contribute it](https://github.com/Kapeli/cheatsheets#readme) to Dash.
 

@@ -24,7 +24,7 @@ cheatsheet do
   docset_file_name 'Sample'  # Used for the filename of the docset
   keyword 'sample'           # Used as the initial search keyword (listed in Preferences > Docsets)
   
-  introduction 'My *awesome* cheat sheet'  # Optional, can contain markdown and multiple lines
+  introduction 'My *awesome* cheat sheet'  # Optional, can contain Markdown or HTML
 
   # A cheat sheet must consist of categories
   category do
@@ -33,8 +33,8 @@ cheatsheet do
     entry do
       command 'CMD-n'        # Optional
       command 'CMD-N'        # Multiple commands are supported
-      name 'Create window'   # A short name, can contain markdown
-      notes 'Some notes'     # Optional longer explanation, can contain markdown
+      name 'Create window'   # A short name, can contain Markdown or HTML
+      notes 'Some notes'     # Optional longer explanation, can contain Markdown or HTML
     end
     entry do
       command 'CMD-w'
@@ -50,7 +50,7 @@ cheatsheet do
         ```ruby
         sample = "You can include code snippets as well"
         ```
-        Or anything else **markdown**.
+        Or anything else **Markdown** or HTML.
       END
     end
   end
@@ -58,7 +58,7 @@ cheatsheet do
   notes 'Some notes at the end of the cheat sheet'
 end
 ```
-The following values may contain markdown formatted text:
+The following values may contain Markdown or HTML:
 
 * The `introduction` and the `notes` of the cheat sheet
 * The `name` and the `notes` of the entries

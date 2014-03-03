@@ -3,6 +3,7 @@ require 'rouge'
 require 'rouge/plugins/redcarpet'
 require 'sanitize'
 require 'unindent'
+require 'cgi'
 
 class HTML < Redcarpet::Render::HTML
   include Rouge::Plugins::Redcarpet
@@ -55,7 +56,7 @@ module Cheatset
             instance_variable_get("@#{name}")
           end
           define_method("tags_stripped_#{name}") do
-            Sanitize.clean(send(name))
+            CGI.unescapeHTML(Sanitize.clean(send(name)))
           end
         end
       end

@@ -73,13 +73,13 @@ table {
   width: 100%; }
 
 td {
-  padding: 6px 2px 2px 8px; }
+  padding: 13px 2px 0px 8px; }
 
 td.command {
   width: 1%;
   white-space: nowrap;
   vertical-align: top;
-  padding: 8px 8px 4px 7px;
+  padding: 9px 8px 4px 7px;
   text-align: right; }
   td.command code {
     padding: .1em .6em;
@@ -99,7 +99,7 @@ a {
   color: #666666; }
 
 p {
-  margin: 0 0 4px; }
+  margin: 0 0 7px; }
 
 .highlight {
   background-color: #f8f8f8;
@@ -315,4 +315,12 @@ p {
 
 pre {
   padding: 15px;
-  line-height: 17px; }
+  line-height: 17px;
+  margin-top: 0px;
+  margin-bottom: 9px; }
+
+.name {
+  margin-top: -4px; }
+
+ul {
+  padding-left: 24px; }

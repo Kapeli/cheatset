@@ -44,16 +44,15 @@ class Cheatset::Creator
 
   def generate_plist_file
     plist_data = {
-      'CFBundleIdentifier' => @cheatsheet.keyword,
+      'CFBundleIdentifier' => 'cheatsheet',
       'CFBundleName' => @cheatsheet.title,
-      'DocSetPlatformFamily' => @cheatsheet.keyword,
+      'DocSetPlatformFamily' => 'cheatsheet',
       'DashDocSetFamily' => 'cheatsheet',
       'isDashDocset' => true,
-      'dashIndexFilePath' => 'index.html'
+      'dashIndexFilePath' => 'index.html',
+      'DashDocSetPluginKeyword' => (@cheatsheet.platform) ? @cheatsheet.platform : @cheatsheet.keyword,
+      'DashDocSetKeyword' => @cheatsheet.keyword
     }
-    if @cheatsheet.platform
-      plist_data['DocSetDashPluginKeyword'] = @cheatsheet.platform
-    end
     File.open("#{@path}Info.plist", 'w') do |file|
       file.write(Plist::Emit.dump(plist_data))
     end

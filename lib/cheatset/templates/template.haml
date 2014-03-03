@@ -6,9 +6,14 @@
     %link{rel: 'stylesheet', href: 'style.css'}
     - categories.each do |category|
       %link{href: "//dash_ref/Category/#{category.id.strip.gsub(/\//, '%2F')}/1"}
+      - category.hasEntry(false)
       - category.entries.each_with_index do |entry, index|
         - if entry.name
+          - category.hasEntry(true)
           %link{href: "//dash_ref_#{category.id.strip.gsub(/\//, '%2F')}/Entry/#{entry.tags_stripped_name.strip.gsub(/\//, '%2F')}/0"}
+      - if !category.hasEntry
+        %link{href: "//dash_ref/Entry/#{category.id.strip.gsub(/\//, '%2F')}/0"}
+
   %body
     %header
       %h1= title
@@ -18,6 +23,8 @@
 
       - categories.each do |category|
         %section.category
+          - if !category.hasEntry
+            %a{name: "//dash_ref/Entry/#{category.id.strip.gsub(/\//, '%2F')}/0"}
           %h2{id:"//dash_ref/Category/#{category.id.strip.gsub(/\//, '%2F')}/1"}
             = category.id
           %table

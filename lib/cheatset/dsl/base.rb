@@ -63,3 +63,24 @@ module Cheatset
     end
   end
 end
+
+def kbd_tags(command)
+  kbd = ""
+  if(command =~ /CTRL/i)
+    kbd << "<kbd>⇧</kbd>"
+  end
+  if(command =~ /Alt/i)
+    kbd << "<kbd>⌥</kbd>"
+  end
+  if(command =~ /SHIFT/i)
+    kbd << "<kbd>⇧</kbd>"
+  end
+  if(command =~ /CMD/i)
+    kbd << "<kbd>⌘</kbd>"
+  end
+  rest = command.split('+').last
+  kbd << "<kbd>#{rest}</kbd>"
+  tags = "<span title=\"#{command}\">#{kbd}</span>"
+  return tags
+end
+

@@ -35,7 +35,12 @@
                     - entry.command.each do |command|
                       %p
                         %code= CGI.escapeHTML(command)
-                %td.description{:colspan => ("2" unless entry.command)}
+                - if entry.shortcut
+                  %td.shortcut
+                    - entry.shortcut.each do |shortcut|
+                      %p
+                        = kbd_tags(shortcut)
+                %td.description{:colspan => ("2" unless entry.command || entry.shortcut)}
                   .name~ entry.name
                   .notes~ entry.notes
       - if notes

@@ -78,6 +78,12 @@ class Cheatset::Creator
                        "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape(entry.tags_stripped_name.strip).gsub(/\//, '%252F')}/0")
           end
         end
+        if entry.shortcut
+          entry.shortcut.each do |shortcut|
+            db.execute(sql, shortcut.strip, 'Command',
+                       "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape(entry.tags_stripped_name.strip).gsub(/\//, '%252F')}/0")
+          end
+        end
         if entry.name
           db.execute(sql, entry.tags_stripped_name.strip, 'Entry',
                    "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape(entry.tags_stripped_name.strip).gsub(/\//, '%252F')}/0")

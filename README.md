@@ -58,17 +58,18 @@ cheatsheet do
   notes 'Some notes at the end of the cheat sheet'
 end
 ```
+
+To convert this file to a docset, call
+
+    $ cheatset generate sample.rb
+
 The following values may contain Markdown or HTML:
 
 * The `introduction` and the `notes` of the cheat sheet
 * The `name` and the `notes` of the entries
 
 For more complete examples look at some of
-[the actual cheat sheets](https://github.com/Kapeli/cheatsheets).
-
-To convert this file to a docset, call
-
-    $ cheatset generate sample.rb
+[the actual cheat sheets](https://github.com/Kapeli/cheatsheets/tree/master/cheatsheets).
 
 ## Thanks
 

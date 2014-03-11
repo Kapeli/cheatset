@@ -75,19 +75,23 @@ table {
 td {
   padding: 13px 2px 0px 8px; }
 
-td.command {
+td.command, td.td_command {
   width: 1%;
   white-space: nowrap;
   vertical-align: top;
   padding: 9px 8px 4px 7px;
   text-align: right; }
-  td.command code {
+  td.command code, td.td_command code {
     padding: .1em 0.2em;
     box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
     border-radius: 3px;
     border: 1px solid #ccc;
     background-color: #efefef;
     color: #333; }
+
+td.td_command {
+  text-align: center;
+  border-right: 1px solid #666666; }
 
 td.description .name {
   font-size: 1.2em; }

@@ -4,6 +4,8 @@
     %meta{charset: 'utf-8'}
     %title= title
     %link{rel: 'stylesheet', href: 'style.css'}
+    - if style
+      %style{type: 'text/css'}= style
     - categories.each do |category|
       %link{href: "//dash_ref/Category/#{category.id.strip.gsub(/\//, '%2F')}/1"}
       - category.hasEntry(false)
@@ -35,7 +37,12 @@
                     - entry.command.each do |command|
                       %p
                         %code= CGI.escapeHTML(command)
-                %td.description{:colspan => ("2" unless entry.command)}
+                - if entry.td_command
+                  - entry.td_command.each do |command|
+                    %td.td_command
+                      - if !command.empty?
+                        %code= CGI.escapeHTML(command)
+                %td.description{:colspan => ("2" unless entry.command || entry.td_command)}
                   .name~ entry.name
                   .notes~ entry.notes
       - if notes

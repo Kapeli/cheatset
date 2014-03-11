@@ -111,6 +111,12 @@ td.command {
   }
 }
 
+td.td_command {
+  @extend td.command;
+  text-align:center;
+  border-right: 1px solid $dark_gray;
+}
+
 td.description {
   .name {
     font-size: 1.2em;

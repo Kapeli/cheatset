@@ -74,8 +74,18 @@ class Cheatset::Creator
       category.entries.each_with_index do |entry, index|
         if entry.command
           entry.command.each do |command|
-            db.execute(sql, command.strip, 'Command',
+            if(!command.strip.empty?)
+              db.execute(sql, command.strip, 'Command',
                        "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape(entry.tags_stripped_name.strip).gsub(/\//, '%252F')}/0")
+            end
+          end
+        end
+        if entry.td_command
+          entry.td_command.each do |command|
+            if(!command.strip.empty?)
+              db.execute(sql, command.strip, 'Command',
+                       "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape(entry.tags_stripped_name.strip).gsub(/\//, '%252F')}/0")
+            end
           end
         end
         if entry.name

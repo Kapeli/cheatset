@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'cheatset'
   spec.version       = Cheatset::VERSION
   spec.authors       = ['Bogdan Popescu']
-  spec.description   = 'Generate cheatsheets for Dash'
+  spec.description   = 'Generate cheat sheets for Dash'
   spec.summary       = spec.description
   spec.homepage      = 'https://github.com/Kapeli/cheatset'
   spec.license       = 'MIT'

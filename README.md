@@ -10,6 +10,10 @@ language (Ruby DSL).
 
     $ gem install cheatset
 
+Note: this requires the Xcode Command Line Tools to be installed. Install them using this:
+
+    $ xcode-select --install
+
 ## Contributions
 
 If you make an useful cheat sheet, please [contribute it](https://github.com/Kapeli/cheatsheets#readme) to Dash.

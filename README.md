@@ -13,6 +13,8 @@ language (Ruby DSL).
 Note: this requires the Xcode Command Line Tools to be installed. Install them using this:
 
     $ xcode-select --install
+    
+If it still doesn't work, it most likely means you got Xcode 5.1 which just broke a lot of gems. See [Issue #2](https://github.com/Kapeli/cheatset/issues/2#issuecomment-37369283) for more details and a workaround.
 
 ## Contributions
 

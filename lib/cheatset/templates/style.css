@@ -24,6 +24,9 @@ code {
   background-color: #f8f8f8;
   border-radius: 3px; }
 
+.name code {
+  vertical-align: 1px; }
+
 code:before, code:after {
   content: "\00a0"; }
 

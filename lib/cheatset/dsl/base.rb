@@ -56,7 +56,7 @@ module Cheatset
             instance_variable_get("@#{name}")
           end
           define_method("tags_stripped_#{name}") do
-            CGI.unescapeHTML(Sanitize.clean(send(name)))
+            CGI.unescapeHTML(Sanitize.clean(send(name).gsub("\n", ' ').squeeze(' ')))
           end
         end
       end

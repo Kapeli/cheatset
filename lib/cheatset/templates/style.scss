@@ -121,6 +121,10 @@ td.td_command {
   border-right: 1px solid $dark_gray;
 }
 
+td.td_notes {
+  border-left: 1px solid $dark_gray;
+}
+
 td.description {
   .name {
     font-size: 1.2em;
@@ -128,6 +132,16 @@ td.description {
 }
 tr:nth-child(even) {
   background: $light_gray;
+}
+
+th {
+  padding:5px 2px 5px 8px;
+  text-align: left;
+  border-left: 1px solid $dark_gray;
+}
+
+th:nth-child(1) {
+  border:none;
 }
 
 a {

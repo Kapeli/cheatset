@@ -30,6 +30,11 @@
           %h2{id:"//dash_ref/Category/#{category.id.strip.gsub(/\//, '%2F')}/1"}
             = category.id
           %table
+            - if category.header
+              %tr
+                - category.header.each do |header|
+                  %th~ header
+
             - category.entries.each_with_index do |entry, index|
               %tr{id: ("//dash_ref_#{category.id.strip.gsub(/\//, '%2F')}/Entry/#{entry.tags_stripped_name.strip.gsub(/\//, '%2F')}/0" if entry.name)}
                 - if entry.command
@@ -42,9 +47,14 @@
                     %td.td_command
                       - if !command.empty?
                         %code= CGI.escapeHTML(command)
-                %td.description{:colspan => ("2" unless entry.command || entry.td_command)}
+                %td.description{:colspan => ("2" unless entry.command || entry.td_command || entry.td_notes)}
                   .name~ entry.name
                   .notes~ entry.notes
+                - if entry.td_notes
+                  - entry.td_notes.each do |notes|
+                    %td.td_notes
+                      - if !notes.empty?
+                        .td_notes~ notes
       - if notes
         %section.notes
           %h2 Notes

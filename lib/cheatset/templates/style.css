@@ -95,11 +95,22 @@ td.td_command {
   text-align: center;
   border-right: 1px solid #666666; }
 
+td.td_notes {
+  border-left: 1px solid #666666; }
+
 td.description .name {
   font-size: 1.2em; }
 
 tr:nth-child(even) {
   background: #efefef; }
+
+th {
+  padding: 5px 2px 5px 8px;
+  text-align: left;
+  border-left: 1px solid #666666; }
+
+th:nth-child(1) {
+  border: none; }
 
 a {
   color: #666666; }

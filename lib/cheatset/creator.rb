@@ -6,8 +6,9 @@ require 'ostruct'
 require 'uri'
 
 class Cheatset::Creator
-  def initialize(cheatsheet)
+  def initialize(cheatsheet, filename)
     @cheatsheet = cheatsheet
+    @filename = filename
     @docset_path = "#{@cheatsheet.docset_file_name}.docset"
     @path = "#{@docset_path}/Contents/"
   end
@@ -39,7 +40,13 @@ class Cheatset::Creator
     FileUtils.cp("#{tpl_path}/style.css", doc_path)
 
     # resources
-    FileUtils.cp_r("#{tpl_path}/res", doc_path)
+    FileUtils.cp_r("#{tpl_path}/cheatset_resources", doc_path)
+    resources = @cheatsheet.resources
+    if !resources.empty?
+      base_dir = File.dirname(@filename)
+      resources_path = "#{base_dir}/#{resources}"
+      FileUtils.cp_r(resources_path, doc_path)
+    end
   end
 
   def generate_plist_file

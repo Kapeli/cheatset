@@ -3,9 +3,10 @@ module Cheatset
     class Context
       def initialize(filename)
         instance_eval(File.read(filename))
+        @filename = filename
       end
       def generate
-        Cheatset::Creator.new(@data).generate
+        Cheatset::Creator.new(@data, @filename).generate
       end
       private
 

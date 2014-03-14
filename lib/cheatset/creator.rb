@@ -68,6 +68,7 @@ class Cheatset::Creator
   def generate_database
     sqlite_file = "#{@path}Resources/docSet.dsidx"
     db = SQLite3::Database.new(sqlite_file)
+    db.busy_timeout = 100;
     db.execute <<-SQL
       CREATE TABLE searchIndex(id INTEGER PRIMARY KEY, name TEXT,
                                type TEXT, path TEXT);

@@ -1,55 +1,65 @@
 $white: #fff;
 $light_gray: #efefef;
-$dark_gray: #666;
+$dark_gray: #999;
 $lighter_gray: #d7d7d7;
 $black: #000;
+$border_color: #dedede;
+
 ////////////////////////////////////////////////////////////////////////////////
 h1, h2, h3, p, blockquote {
   margin: 0;
   padding: 0;
 }
+
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
   src: local('Open Sans'), local('OpenSans'), url(cheatset_resources/Open_Sans.woff) format('woff');
 }
+
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 600;
   src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(cheatset_resources/Open_Sans_Semibold.woff) format('woff');
 }
+
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 700;
   src: local('Open Sans Bold'), local('OpenSans-Bold'), url(cheatset_resources/Open_Sans_Bold.woff) format('woff');
 }
+
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 800;
   src: local('Open Sans Extrabold'), local('OpenSans-Extrabold'), url(cheatset_resources/Open_Sans_Extrabold.woff) format('woff');
 }
+
 @font-face {
   font-family: 'Open Sans';
   font-style: italic;
   font-weight: 400;
   src: local('Open Sans Italic'), local('OpenSans-Italic'), url(cheatset_resources/Open_Sans_Italic.woff) format('woff');
 }
+
 @font-face {
   font-family: 'Open Sans';
   font-style: italic;
   font-weight: 600;
   src: local('Open Sans Semibold Italic'), local('OpenSans-SemiboldItalic'), url(cheatset_resources/Open_Sans_Semibold_Italic.woff) format('woff');
 }
+
 @font-face {
   font-family: 'Open Sans';
   font-style: italic;
   font-weight: 700;
   src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'), url(cheatset_resources/Open_Sans_Bold_Italic.woff) format('woff');
 }
+
 @font-face {
   font-family: 'Open Sans';
   font-style: italic;
@@ -64,20 +74,21 @@ body {
   background-color: $white;
   margin: 0;
 }
+
 code, pre {
   font-family: Menlo, Consolas, "Liberation Mono", Courier, monospace;
   font-size:13px;
 }
 
-code {  
-  margin:0;
-  border:1px solid #ddd;
-  background-color:#f8f8f8;
-  border-radius:3px;
+code {
+  margin: 0;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+  border-radius: 3px;
 }
 
 .name code {
-  vertical-align:1px;
+  vertical-align: 1px;
 }
 
 code:before, code:after {
@@ -86,78 +97,96 @@ code:before, code:after {
 
 ////////////////////////////////////////////////////////////////////////////////
 header {
-  color: $light_gray;
-  background-color: $dark_gray;
-  padding: 0px 10px 3px 10px;
-}
-h1 {
-  font-size: 35px;
-  font-weight:600;
+  background-image: -webkit-linear-gradient(#333333, #222222);
+  background-image: linear-gradient(#333333, #222222);
+  border-bottom: 1px solid #eee;
+  color: #eee;
+  padding: 1.5em 1em;
+
+  h1 {
+    font-weight: normal;
+    font-size: 2.2em;
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 footer {
-  background-color: $dark_gray;
-  color: $light_gray;
+  border-top: 1px solid $border_color;
+  color: $dark_gray;
+  font-size: .9em;
+  padding: 1em 0;
   text-align: center;
-  padding:3px 0px;
+
   a {
-    color: $light_gray;
+    color: $dark_gray;
   }
 }
 ////////////////////////////////////////////////////////////////////////////////
 // notes
 section.notes {
   margin-top: 1em;
+
   h2 {
-    color: $dark_gray;
+    color: #555;
+    font-weight: normal;
     font-size: 1.5em;
   }
 }
 ////////////////////////////////////////////////////////////////////////////////
 article {
-  margin: 2em 1em;
+  margin: 0 1em;
 }
+
 section.category {
-  border: 2px solid $dark_gray;
   border-radius: 6px 6px;
-  background-color: $dark_gray;
+  border: 1px solid $border_color;
   margin: 2em 0;
   overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .06);
+
   h2 {
-    color: $white;
+    background-color: #fafafa;
+    border-bottom: 1px solid $border_color;
+    color: #333;
     font-size: 1.5em;
-    text-align: center;
+    font-weight: 600;
     margin-top: -2px;
-    font-weight:600;
+    text-align: left;
+    padding: .5em;
   }
-  padding-bottom: 5px;
 }
+
 table {
   background-color: $white;
   border-collapse: collapse;
   width: 100%;
 }
+
 td {
-  padding: 13px 2px 0px 8px;
-  border-left:1px solid $lighter_gray;
+  padding: 1.5em 1em 1em;
+  border-left: 1px solid $lighter_gray;
 }
+
 th {
-  border-left:1px solid $lighter_gray;
-}  
+  border-left: 1px solid $lighter_gray;
+}
+
 tr {
-  border-bottom:1px dotted $lighter_gray;
+  border-bottom: 1px dotted $lighter_gray;
 }
+
 tr:last-child {
-  border-bottom:none;
+  border-bottom: none;
 }
+
 td.command {
   width: 1%;
   white-space: nowrap;
   vertical-align: top;
   padding: 9px 8px 4px 7px;
-  text-align:right;
+  text-align: right;
   // border-right:1px solid $lighter_gray;
+
   code {
     // Nice key styling:
     // https://developers.google.com/chrome-developer-tools/docs/shortcuts
@@ -172,7 +201,7 @@ td.command {
 
 td.td_command {
   @extend td.command;
-  text-align:center;
+  text-align: center;
 }
 
 td.description {
@@ -183,14 +212,14 @@ td.description {
 
 th {
   background: $light_gray;
-  padding:5px 12px 5px 8px;
+  padding: 5px 12px 5px 8px;
   text-align: left;
   border-bottom: 1px solid $lighter_gray;
-  font-weight:600;
+  font-weight: 600;
 }
 
 th:nth-child(1), td:nth-child(1) {
-  border-left:none;
+  border-left: none;
 }
 
 a {
@@ -198,10 +227,17 @@ a {
 }
 
 p {
-  margin:0 0 7px;
+  margin: 0 0 7px;
 }
 
-.highlight { background-color: #f8f8f8; border: 1px solid #ccc; padding: 6px 10px; border-radius: 3px; margin-right:15px; white-space: pre-wrap; word-wrap:break-word;}
+.highlight {
+  background-color: #f8f8f8;
+  border-radius: 3px;
+  padding: 6px 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
 .c { color: #999988; font-style: italic; }
 .err { color: #a61717; background-color: #e3d2d2; }
 .k { font-weight: bold; }

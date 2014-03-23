@@ -74,9 +74,13 @@ class Cheatset::Creator
                                type TEXT, path TEXT);
       CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);
     SQL
+
+    sql = 'INSERT INTO searchIndex(name, type, path) VALUES (?, ?, ?)'
+    db.execute(sql, @cheatsheet.title, 'Category',
+               "index.html")
+    
     @cheatsheet.categories.each do |category|
       category_strip = URI.escape(category.id.strip).gsub(/\//, '%252F');
-      sql = 'INSERT INTO searchIndex(name, type, path) VALUES (?, ?, ?)'
       db.execute(sql, category.id, 'Category',
                  "index.html\#//dash_ref/Category/#{category_strip}/1")
       category.entries.each_with_index do |entry, index|

@@ -2,7 +2,7 @@ module Cheatset
   module DSL
     class Category < Base
       attr_reader :entries
-      define_attrs :id, :hasEntry
+      define_attrs :id, :hasEntry, :html_class
       define_list_attrs :header
 
       def initialize(&block)

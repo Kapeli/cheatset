@@ -24,7 +24,7 @@
       %p~ introduction
 
       - categories.each do |category|
-        %section.category
+        %section.category{class: category.html_class}
           - if !category.hasEntry
             %a{name: "//dash_ref/Entry/#{category.id.strip.gsub(/\//, '%2F')}/0"}
           %h2{id:"//dash_ref/Category/#{category.id.strip.gsub(/\//, '%2F')}/1"}

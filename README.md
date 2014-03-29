@@ -26,10 +26,10 @@ Write a file (here `sample.rb`) containing your cheat sheet data, e.g.:
 
 ```ruby
 cheatsheet do
-  title 'Sample'             # Will be displayed by Dash in the docset list
-  docset_file_name 'Sample'  # Used for the filename of the docset
-  keyword 'sample'           # Used as the initial search keyword (listed in Preferences > Docsets)
-  resources 'resources_dir'  # An optional resources folder which can contain images or anything else
+  title 'Sample'               # Will be displayed by Dash in the docset list
+  docset_file_name 'Sample'    # Used for the filename of the docset
+  keyword 'sample'             # Used as the initial search keyword (listed in Preferences > Docsets)
+  # resources 'resources_dir'  # An optional resources folder which can contain images or anything else
   
   introduction 'My *awesome* cheat sheet'  # Optional, can contain Markdown or HTML
 

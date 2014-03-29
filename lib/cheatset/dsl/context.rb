@@ -2,7 +2,7 @@ module Cheatset
   module DSL
     class Context
       def initialize(filename)
-        instance_eval(File.read(filename))
+        instance_eval(File.read(filename), File.expand_path(filename))
         @filename = filename
       end
       def generate

@@ -4,6 +4,7 @@ require 'fileutils'
 require 'haml'
 require 'ostruct'
 require 'uri'
+require 'pathname'
 
 class Cheatset::Creator
   def initialize(cheatsheet, filename)
@@ -43,8 +44,13 @@ class Cheatset::Creator
     FileUtils.cp_r("#{tpl_path}/cheatset_resources", doc_path)
     resources = @cheatsheet.resources
     if resources && !resources.empty?
-      base_dir = File.dirname(@filename)
-      resources_path = "#{base_dir}/#{resources}"
+      if Pathname.new(resources).absolute?
+        resources_path = resources
+      else
+        base_dir = File.dirname(@filename)
+        resources_path = "#{base_dir}/#{resources}"
+      end
+
       FileUtils.cp_r(resources_path, doc_path)
     end
   end

@@ -107,8 +107,8 @@ class Cheatset::Creator
           end
         end
         if entry.name
-          db.execute(sql, entry.tags_stripped_name.strip, 'Entry',
-                   "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape(entry.tags_stripped_name.strip).gsub(/\//, '%252F')}/0")
+          db.execute(sql, (entry.index_name) ? entry.index_name.strip : entry.tags_stripped_name.strip, 'Entry',
+                 "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape(entry.tags_stripped_name.strip).gsub(/\//, '%252F')}/0")
         end
       end
     end

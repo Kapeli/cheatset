@@ -57,7 +57,8 @@ code {
   margin: 0;
   border: 1px solid #ddd;
   background-color: #f8f8f8;
-  border-radius: 3px; }
+  border-radius: 3px;
+  white-space: nowrap; }
 
 .name code {
   vertical-align: 1px; }

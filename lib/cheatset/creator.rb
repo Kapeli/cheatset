@@ -90,25 +90,23 @@ class Cheatset::Creator
       db.execute(sql, category.id, 'Category',
                  "index.html\#//dash_ref/Category/#{category_strip}/1")
       category.entries.each_with_index do |entry, index|
+        href = (entry.name || entry.index_name) ? "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape((entry.name) ? entry.tags_stripped_name.strip : entry.index_name.strip).gsub(/\//, '%252F')}/0" : ""
         if entry.command
           entry.command.each do |command|
             if(!command.strip.empty?)
-              db.execute(sql, command.strip, 'Command',
-                       "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape(entry.tags_stripped_name.strip).gsub(/\//, '%252F')}/0")
+              db.execute(sql, command.strip, 'Command', href)
             end
           end
         end
         if entry.td_command
           entry.td_command.each do |command|
             if(!command.strip.empty?)
-              db.execute(sql, command.strip, 'Command',
-                       "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape(entry.tags_stripped_name.strip).gsub(/\//, '%252F')}/0")
+              db.execute(sql, command.strip, 'Command', href)
             end
           end
         end
-        if entry.name
-          db.execute(sql, (entry.index_name) ? entry.index_name.strip : entry.tags_stripped_name.strip, 'Entry',
-                 "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape(entry.tags_stripped_name.strip).gsub(/\//, '%252F')}/0")
+        if entry.name || entry.index_name
+          db.execute(sql, (entry.index_name) ? entry.index_name.strip : entry.tags_stripped_name.strip, 'Entry', href)
         end
       end
     end

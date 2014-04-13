@@ -10,9 +10,9 @@
       %link{href: "//dash_ref/Category/#{category.id.strip.gsub(/\//, '%2F')}/1"}
       - category.hasEntry(false)
       - category.entries.each_with_index do |entry, index|
-        - if entry.name
+        - if entry.name || entry.index_name
           - category.hasEntry(true)
-          %link{href: "//dash_ref_#{category.id.strip.gsub(/\//, '%2F')}/Entry/#{entry.tags_stripped_name.strip.gsub(/\//, '%2F')}/0"}
+          %link{href: "//dash_ref_#{category.id.strip.gsub(/\//, '%2F')}/Entry/#{(entry.name) ? entry.tags_stripped_name.strip.gsub(/\//, '%2F') : entry.index_name.strip.gsub(/\//, '%2F')}/0"}
       - if !category.hasEntry
         %link{href: "//dash_ref/Entry/#{category.id.strip.gsub(/\//, '%2F')}/0"}
 
@@ -36,7 +36,7 @@
                   %th~ header
 
             - category.entries.each_with_index do |entry, index|
-              %tr{id: ("//dash_ref_#{category.id.strip.gsub(/\//, '%2F')}/Entry/#{entry.tags_stripped_name.strip.gsub(/\//, '%2F')}/0" if entry.name)}
+              %tr{id: ("//dash_ref_#{category.id.strip.gsub(/\//, '%2F')}/Entry/#{(entry.name) ? entry.tags_stripped_name.strip.gsub(/\//, '%2F') : entry.index_name.strip.gsub(/\//, '%2F')}/0" if (entry.name || entry.index_name) )}
                 - if entry.command
                   %td.command
                     - entry.command.each do |command|
@@ -47,9 +47,10 @@
                     %td.td_command
                       - if !command.empty?
                         %code= CGI.escapeHTML(command)
-                %td.description{:colspan => ("2" unless entry.command || entry.td_command || entry.td_notes)}
-                  .name~ entry.name
-                  .notes~ entry.notes
+                - if entry.name || entry.notes
+                  %td.description{:colspan => ("2" unless entry.command || entry.td_command || entry.td_notes)}
+                    .name~ entry.name
+                    .notes~ entry.notes
                 - if entry.td_notes
                   - entry.td_notes.each do |notes|
                     %td.td_notes

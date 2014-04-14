@@ -80,6 +80,16 @@ Syntax highlighting is supported (see Ruby code in the sample). For a list of su
 For more complete examples look at some of
 [the actual cheat sheets](https://github.com/Kapeli/cheatsheets/tree/master/cheatsheets).
 
+## Advanced Usage
+
+Apart from the attributes listed in the sample cheat sheet above, you can also use these:
+
+* `style` (under `cheatsheet`) - define any CSS style you want. See example [here](https://github.com/Kapeli/cheatsheets/blob/f9e40e30b6fde9063b7a0fb5de8fb203851b17df/cheatsheets/CSS_Named_Colors.rb#L7-L12)
+* `html_class` (under `category`) - define a HTML class to be added to a category. This can be used to define custom styling for each category
+* `td_command` (under `entry`) - just like `command`, but multiple ones are added in a separate column (as opposed to a separate row)
+* `td_notes` (under `entry`) - just like `notes`, but multiple ones are added in a separate column (as opposed to a separate row)
+* `index_name` (under `entry`) - this is not displayed in the cheat sheet at all. You can use it to define a separate index name (i.e what gets added to Dash's search index and is searchable in Dash). In other words, if this entry is not present, the value in `name` is used.
+
 ## Thanks
 
 [Nix-wie-weg](https://github.com/Nix-wie-weg/dasheets) for the initial code.

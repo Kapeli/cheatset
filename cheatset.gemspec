@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'sqlite3'
   spec.add_dependency 'plist'
   spec.add_dependency 'redcarpet'
-  spec.add_dependency 'rouge'
+  spec.add_dependency 'rouge', '>= 1.3', '< 1.4'
   spec.add_dependency 'sanitize'
   spec.add_dependency 'unindent'
 end

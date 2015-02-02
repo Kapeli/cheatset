@@ -15,6 +15,9 @@
         - if entry.name || entry.index_name
           - category.hasEntry(true)
           %link{href: "//dash_ref_#{category.id.strip.gsub(/\//, '%2F')}/Entry/#{(entry.name) ? entry.tags_stripped_name.strip.gsub(/\//, '%2F') : entry.index_name.strip.gsub(/\//, '%2F')}/0"}
+        - elsif entry.command && entry.command.length > 0
+          - category.hasEntry(true)
+          %link{href: "//dash_ref_#{category.id.strip.gsub(/\//, '%2F')}/Command/#{entry.command.first.strip.gsub(/\//, '%2F')}/0"}
       - if !category.hasEntry
         %link{href: "//dash_ref/Entry/#{category.id.strip.gsub(/\//, '%2F')}/0"}
 
@@ -38,7 +41,7 @@
                   %th~ header
 
             - category.entries.each_with_index do |entry, index|
-              %tr{id: ("//dash_ref_#{category.id.strip.gsub(/\//, '%2F')}/Entry/#{(entry.name) ? entry.tags_stripped_name.strip.gsub(/\//, '%2F') : entry.index_name.strip.gsub(/\//, '%2F')}/0" if (entry.name || entry.index_name) )}
+              %tr{id: ((entry.name || entry.index_name) ? "//dash_ref_#{category.id.strip.gsub(/\//, '%2F')}/Entry/#{(entry.name) ? entry.tags_stripped_name.strip.gsub(/\//, '%2F') : entry.index_name.strip.gsub(/\//, '%2F')}/0" : "//dash_ref_#{category.id.strip.gsub(/\//, '%2F')}/Command/#{entry.command.first.strip.gsub(/\//, '%2F')}/0" if (entry.name || entry.index_name || (entry.command && entry.command.length > 0)) )}
                 - if entry.command
                   %td.command
                     - entry.command.each do |command|

@@ -90,7 +90,11 @@ class Cheatset::Creator
       db.execute(sql, category.id, 'Category',
                  "index.html\#//dash_ref/Category/#{category_strip}/1")
       category.entries.each_with_index do |entry, index|
-        href = (entry.name || entry.index_name) ? "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape((entry.name) ? entry.tags_stripped_name.strip : entry.index_name.strip).gsub(/\//, '%252F')}/0" : ""
+        first_command = nil;
+        if entry.command && entry.command.length > 0
+          first_command = entry.command.first
+        end
+        href = (entry.name || entry.index_name) ? "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape((entry.name) ? entry.tags_stripped_name.strip : entry.index_name.strip).gsub(/\//, '%252F')}/0" : (first_command) ? "index.html\#//dash_ref_#{category_strip}/Command/#{URI.escape(first_command).gsub(/\//, '%252F')}/0" : ""
         if entry.command
           entry.command.each do |command|
             if(!command.strip.empty?)

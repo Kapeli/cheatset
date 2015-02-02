@@ -6,6 +6,8 @@
     %link{rel: 'stylesheet', href: 'style.css'}
     - if style
       %style{type: 'text/css'}= style
+    - if head_inject
+      = head_inject
     - categories.each do |category|
       %link{href: "//dash_ref/Category/#{category.id.strip.gsub(/\//, '%2F')}/1"}
       - category.hasEntry(false)

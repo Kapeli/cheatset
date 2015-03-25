@@ -45,8 +45,8 @@ h1, h2, h3, p, blockquote {
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
-  color: black;
-  background-color: white;
+  color: #000;
+  background-color: #fff;
   margin: 0; }
 
 code, pre {
@@ -68,7 +68,7 @@ code:before, code:after {
 
 header {
   color: #efefef;
-  background-color: #666666;
+  background-color: #666;
   padding: 0px 10px 3px 10px; }
 
 h1 {
@@ -76,7 +76,7 @@ h1 {
   font-weight: 600; }
 
 footer {
-  background-color: #666666;
+  background-color: #666;
   color: #efefef;
   text-align: center;
   padding: 3px 0px; }
@@ -86,28 +86,28 @@ footer {
 section.notes {
   margin-top: 1em; }
   section.notes h2 {
-    color: #666666;
+    color: #666;
     font-size: 1.5em; }
 
 article {
   margin: 2em 1em; }
 
 section.category {
-  border: 2px solid #666666;
+  border: 2px solid #666;
   border-radius: 6px 6px;
-  background-color: #666666;
+  background-color: #666;
   margin: 2em 0;
   overflow: hidden;
   padding-bottom: 5px; }
   section.category h2 {
-    color: white;
+    color: #fff;
     font-size: 1.5em;
     text-align: center;
     margin-top: -2px;
     font-weight: 600; }
 
 table {
-  background-color: white;
+  background-color: #fff;
   border-collapse: collapse;
   width: 100%; }
 
@@ -132,7 +132,7 @@ td.command, td.td_command {
   text-align: right; }
   td.command code, td.td_command code {
     padding: .1em 0.2em;
-    box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+    box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
     border-radius: 3px;
     border: 1px solid #ccc;
     background-color: #efefef;
@@ -155,7 +155,7 @@ th:nth-child(1), td:nth-child(1) {
   border-left: none; }
 
 a {
-  color: #666666; }
+  color: #666; }
 
 p {
   margin: 0 0 7px; }
@@ -379,3 +379,6 @@ pre {
 
 ul {
   padding-left: 24px; }
+
+.scrollable {
+  overflow-x: auto; }

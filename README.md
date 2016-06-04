@@ -73,7 +73,7 @@ The following values may contain Markdown or HTML:
 * The `introduction` and the `notes` of the cheat sheet
 * The `name` and the `notes` of the entries
 
-Syntax highlighting is supported (see Ruby code in the sample). For a list of supported languages, see [Rouge's Demo Page](http://rouge.jayferd.us/demo)
+Syntax highlighting is supported (see Ruby code in the sample). For a list of supported languages, see the [rouge](http://rouge.jneen.net/) [lexer repository](https://github.com/jneen/rouge/tree/master/spec/lexers)
 
 For more complete examples look at some of
 [the actual cheat sheets](https://github.com/Kapeli/cheatsheets/tree/master/cheatsheets).

@@ -18,7 +18,7 @@ module Cheatset
       private
 
       def parse_markdown(str)
-        markdown = Redcarpet::Markdown.new(HTML, :autolink => true, :hard_wrap =>true, :disable_indented_code_blocks => true, :fenced_code_blocks => true)
+        markdown = Redcarpet::Markdown.new(HTML, :autolink => true, :hard_wrap =>true, :disable_indented_code_blocks => true, :fenced_code_blocks => true, :tables => true)
         markdown.render(str)
       end
 

@@ -142,6 +142,7 @@ table {
 td {
   padding: 13px 8px 0px 8px;
   border-left:1px solid $lighter_gray;
+  vertical-align:top;
 }
 th {
   border-left:1px solid $lighter_gray;
@@ -155,7 +156,6 @@ tr:last-child {
 td.command {
   width: 1%;
   white-space: nowrap;
-  vertical-align: top;
   padding: 9px 8px 4px 7px;
   text-align:right;
   // border-right:1px solid $lighter_gray;

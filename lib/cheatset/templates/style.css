@@ -113,7 +113,8 @@ table {
 
 td {
   padding: 13px 8px 0px 8px;
-  border-left: 1px solid #d7d7d7; }
+  border-left: 1px solid #d7d7d7;
+  vertical-align:top; }
 
 th {
   border-left: 1px solid #d7d7d7; }
@@ -127,7 +128,6 @@ tr:last-child {
 td.command, td.td_command {
   width: 1%;
   white-space: nowrap;
-  vertical-align: top;
   padding: 9px 8px 4px 7px;
   text-align: right; }
   td.command code, td.td_command code {

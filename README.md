@@ -8,7 +8,7 @@ language (Ruby DSL).
 
 ## Installation
 
-    $ sudo gem install cheatset
+    $ sudo gem install cheatset --no-ri --no-rdoc
 
 Note: this requires the Xcode Command Line Tools to be installed. Install them using this:
 

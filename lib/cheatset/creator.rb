@@ -87,8 +87,10 @@ class Cheatset::Creator
     
     @cheatsheet.categories.each do |category|
       category_strip = URI.escape(category.id.strip).gsub(/\//, '%252F');
-      db.execute(sql, category.id, 'Category',
+      if @cheatsheet.title != category.id
+        db.execute(sql, category.id, 'Category',
                  "index.html\#//dash_ref/Category/#{category_strip}/1")
+      end
       category.entries.each_with_index do |entry, index|
         first_command = nil;
         if entry.command && entry.command.length > 0

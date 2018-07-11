@@ -96,7 +96,7 @@ class Cheatset::Creator
         if entry.command && entry.command.length > 0
           first_command = entry.command.first
         end
-        href = (entry.name || entry.index_name) ? "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape((entry.name) ? entry.tags_stripped_name.strip : entry.index_name.strip).gsub(/\//, '%252F')}/0" : (first_command) ? "index.html\#//dash_ref_#{category_strip}/Command/#{URI.escape(first_command).gsub(/\//, '%252F')}/0" : ""
+        href = (entry.name || entry.index_name) ? "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape((entry.index_name) ? entry.index_name.strip : entry.tags_stripped_name.strip).gsub(/\//, '%252F')}/0" : (first_command) ? "index.html\#//dash_ref_#{category_strip}/Command/#{URI.escape(first_command).gsub(/\//, '%252F')}/0" : ""
         if entry.command
           entry.command.each do |command|
             if(!command.strip.empty?)
@@ -113,6 +113,11 @@ class Cheatset::Creator
         end
         if entry.name || entry.index_name
           db.execute(sql, (entry.index_name) ? entry.index_name.strip : entry.tags_stripped_name.strip, 'Entry', href)
+        end
+        if entry.extra_index_name
+          entry.extra_index_name.each do |extra_index_name|
+            db.execute(sql, extra_index_name.strip, 'Entry', href)
+          end
         end
       end
     end

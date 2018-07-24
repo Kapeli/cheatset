@@ -16,7 +16,7 @@ Note: this requires the Xcode Command Line Tools to be installed. Install them u
     
 ## Contributions
 
-If you make an useful cheat sheet, please [contribute it](https://github.com/Kapeli/cheatsheets#readme) to Dash.
+If you make a useful cheat sheet, please [contribute it](https://github.com/Kapeli/cheatsheets#readme) to Dash.
 
 ## Usage
 

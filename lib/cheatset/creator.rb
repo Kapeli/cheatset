@@ -99,20 +99,22 @@ class Cheatset::Creator
         href = (entry.name || entry.index_name) ? "index.html\#//dash_ref_#{category_strip}/Entry/#{URI.escape((entry.index_name) ? entry.index_name.strip : entry.tags_stripped_name.strip).gsub(/\//, '%252F')}/0" : (first_command) ? "index.html\#//dash_ref_#{category_strip}/Command/#{URI.escape(first_command).gsub(/\//, '%252F')}/0" : ""
         if entry.command
           entry.command.each do |command|
-            if(!command.strip.empty?)
+            if(!command.strip.empty? && !entry.not_in_main_index)
               db.execute(sql, command.strip, 'Command', href)
             end
           end
         end
         if entry.td_command
           entry.td_command.each do |command|
-            if(!command.strip.empty?)
+            if(!command.strip.empty? && !entry.not_in_main_index)
               db.execute(sql, command.strip, 'Command', href)
             end
           end
         end
         if entry.name || entry.index_name
-          db.execute(sql, (entry.index_name) ? entry.index_name.strip : entry.tags_stripped_name.strip, 'Entry', href)
+          if(!entry.not_in_main_index)
+            db.execute(sql, (entry.index_name) ? entry.index_name.strip : entry.tags_stripped_name.strip, 'Entry', href)
+          end
         end
         if entry.extra_index_name
           entry.extra_index_name.each do |extra_index_name|

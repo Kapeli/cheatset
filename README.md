@@ -13,7 +13,7 @@ language (Ruby DSL).
 Note: this requires the Xcode Command Line Tools to be installed. Install them using this:
 
     $ xcode-select --install
-    
+
 ## Contributions
 
 If you make a useful cheat sheet, please [contribute it](https://github.com/Kapeli/cheatsheets#readme) to Dash.
@@ -28,7 +28,7 @@ cheatsheet do
   docset_file_name 'Sample'    # Used for the filename of the docset
   keyword 'sample'             # Used as the initial search keyword (listed in Preferences > Docsets)
   # resources 'resources_dir'  # An optional resources folder which can contain images or anything else
-  
+
   introduction 'My *awesome* cheat sheet'  # Optional, can contain Markdown or HTML
 
   # A cheat sheet must consist of categories
@@ -77,6 +77,15 @@ Syntax highlighting is supported (see Ruby code in the sample). For a list of su
 
 For more complete examples look at some of
 [the actual cheat sheets](https://github.com/Kapeli/cheatsheets/tree/master/cheatsheets).
+
+If you do not use Ruby or lack a working Ruby toolchain and still want to generate cheatsheet.
+
+You can use the `cheatset` Docker image.
+
+    $ docker pull jonasbn/cheatset:lastest
+    $ docker run --rm  -it --volume $PWD:/tmp --name cheatset jonasbn/cheatset:latest generate samble.rb
+
+For more details on the Docker image please visit the repositories on [DockerHub](https://hub.docker.com/repository/docker/jonasbn/cheatset) or [GitHub](https://github.com/jonasbn/docker-cheatset)
 
 ## Advanced Usage
 

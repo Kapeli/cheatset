@@ -78,7 +78,7 @@ Syntax highlighting is supported (see Ruby code in the sample). For a list of su
 For more complete examples look at some of
 [the actual cheat sheets](https://github.com/Kapeli/cheatsheets/tree/master/cheatsheets).
 
-If you do not use Ruby or lack a working Ruby toolchain and still want to generate cheatsheet.
+If you do not use Ruby or lack a working Ruby toolchain and still want to generate cheatsheets.
 
 You can use the `cheatset` Docker image.
 

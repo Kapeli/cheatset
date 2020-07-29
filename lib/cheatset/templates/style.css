@@ -44,14 +44,14 @@ h1, h2, h3, p, blockquote {
   src: local("Open Sans Extrabold Italic"), local("OpenSans-ExtraboldItalic"), url(cheatset_resources/Open_Sans_Extrabold_Italic.woff) format("woff"); }
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   color: #000;
   background-color: #fff;
   margin: 0; }
 
 code, pre {
   font-family: Menlo, Consolas, "Liberation Mono", Courier, monospace;
-  font-size: 13px; }
+  font-size: 15px; }
 
 code {
   margin: 0;

@@ -95,6 +95,7 @@ Apart from the attributes listed in the sample cheat sheet above, you can also u
 * `html_class` (under `category`) - define a HTML class to be added to a category. This can be used to define custom styling for each category
 * `td_command` (under `entry`) - just like `command`, but multiple ones are added in a separate column (as opposed to a separate row)
 * `td_notes` (under `entry`) - just like `notes`, but multiple ones are added in a separate column (as opposed to a separate row)
+* `html_notes` (under `entry`) - just like `notes`, but doesn't support Markdown
 * `index_name` (under `entry`) - this is not displayed in the cheat sheet at all. You can use it to define a separate index name (i.e what gets added to Dash's search index and is searchable in Dash). In other words, if this entry is not present, the value in `name` is used.
 
 ## Thanks

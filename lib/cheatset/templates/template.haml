@@ -53,10 +53,11 @@
                       %td.td_command
                         - if !command.empty?
                           %code= CGI.escapeHTML(command)
-                  - if entry.name || entry.notes
+                  - if entry.name || entry.notes || entry.html_notes
                     %td.description{:colspan => ("2" unless entry.command || entry.td_command || entry.td_notes)}
                       .name~ entry.name
                       .notes~ entry.notes
+                      .notes~ entry.html_notes
                   - if entry.td_notes
                     - entry.td_notes.each do |notes|
                       %td.td_notes

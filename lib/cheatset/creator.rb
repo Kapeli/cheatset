@@ -86,7 +86,7 @@ class Cheatset::Creator
                "index.html")
 
     @cheatsheet.categories.each do |category|
-      category_strip = CGI.escape(category.id.strip).gsub(/\//, '%252F');
+      category_strip = CGI.escape(category.id.strip).gsub(/\//, '%252F').gsub(/\+/, '%20');
       if @cheatsheet.title != category.id
         db.execute(sql, category.id, 'Category',
                  "index.html\#//dash_ref/Category/#{category_strip}/1")
@@ -96,7 +96,7 @@ class Cheatset::Creator
         if entry.command && entry.command.length > 0
           first_command = entry.command.first
         end
-        href = (entry.name || entry.index_name) ? "index.html\#//dash_ref_#{category_strip}/Entry/#{CGI.escape((entry.index_name) ? entry.index_name.strip : entry.tags_stripped_name.strip).gsub(/\//, '%252F')}/0" : (first_command) ? "index.html\#//dash_ref_#{category_strip}/Command/#{URI.escape(first_command).gsub(/\//, '%252F')}/0" : ""
+        href = (entry.name || entry.index_name) ? "index.html\#//dash_ref_#{category_strip}/Entry/#{CGI.escape((entry.index_name) ? entry.index_name.strip : entry.tags_stripped_name.strip).gsub(/\//, '%252F').gsub(/\+/, '%20')}/0" : (first_command) ? "index.html\#//dash_ref_#{category_strip}/Command/#{URI.escape(first_command).gsub(/\//, '%252F').gsub(/\+/, '%20')}/0" : ""
         if entry.command
           entry.command.each do |command|
             if(!command.strip.empty? && !entry.not_in_main_index)

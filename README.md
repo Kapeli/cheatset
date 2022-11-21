@@ -83,7 +83,7 @@ If you do not use Ruby or lack a working Ruby toolchain and still want to genera
 You can use the `cheatset` Docker image.
 
     $ docker pull jonasbn/cheatset:latest
-    $ docker run --rm  -it --volume $PWD:/tmp --name cheatset jonasbn/cheatset:latest generate samble.rb
+    $ docker run --rm  -it --volume $PWD:/tmp --name cheatset jonasbn/cheatset:latest generate sample.rb
 
 For more details on the Docker image please visit the repositories on [DockerHub](https://hub.docker.com/repository/docker/jonasbn/cheatset) or [GitHub](https://github.com/jonasbn/docker-cheatset)
 

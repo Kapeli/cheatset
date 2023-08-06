@@ -31,7 +31,7 @@ class Cheatset::Creator
   def generate_html_file
     # HTML
     template = File.read("#{tpl_path}/template.haml")
-    engine = Haml::Engine.new(template)
+    engine = Haml::Template.new { template }
     out = engine.render(@cheatsheet)
     doc_path = "#{@path}Resources/Documents/"
     FileUtils.mkdir_p(doc_path)

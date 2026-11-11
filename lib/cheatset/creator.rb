@@ -28,9 +28,12 @@ class Cheatset::Creator
   end
 
   # Haml 6+ uses Template.new; Haml 5.x uses Engine.new
+  # Haml 6 escapes HTML by default (escape_html: true), Haml 5 did not. The
+  # DSL values (name, notes, html_notes, introduction, ...) already contain
+  # HTML, so escaping must stay off to match the Haml 5 output.
   def render_haml(template, scope)
     if defined?(Haml::Template)
-      Haml::Template.new { template }.render(scope)
+      Haml::Template.new(escape_html: false) { template }.render(scope)
     else
       Haml::Engine.new(template).render(scope)
     end
